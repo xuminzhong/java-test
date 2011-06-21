@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title> drop file </title>
+    <style type="text/css">
+        .dropfile {
+            height: 400px;
+            width: 400px;
+            border-style: dashed;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropfile" id='dropbox'>
+        drop file here
+    </div>
+
+    <img src="" alt="img" id='img1'/>
+</body>
+
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        var dropbox = document.getElementById("dropbox");
+
+dropbox.ondragover = function () { this.style.borderStyle = 'double'; return false; };
+dropbox.ondragend = function () { return false; };
+
+dropbox.addEventListener("drop", function(e) {
+    //e.stopPropagation();
+    e.preventDefault();
+
+    dropbox.style.borderStyle = 'dashed';
+
+
+
+    var file = e.dataTransfer.files[0],
+      reader = new FileReader();
+    
+     reader.onload = function (event) {
+               document.getElementById('img1').src = event.target.result;
+    dropbox.style.background = 'url(' + event.target.result + ') no-repeat center';
+  };
+  reader.readAsDataURL(file);
+
+  return false;
+
+
+}, false);
+
+
+    });
+</script>
+</html>

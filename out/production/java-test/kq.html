@@ -1,0 +1,17 @@
+<iframe src="http://10.2.153.1/kq/Default.aspx" width="100%" height="100%" id='kq' name="kq">
+
+</iframe>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+        $('#kq').load(function(){
+            //var doc = window.frames['kq'].document
+            //var doc = document.getElementById('kq').contentDocument || kq.document;
+            var doc = parent.document.getElementsByTagName("iframe")['kq'].contentWindow
+            alert(doc)
+//            alert($('#ddlUsers',doc).html());
+        });
+    });
+
+    $('a').children[]
+</script>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>tabs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+
+        /* Reset */
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        fieldset, img {
+            border: 0;
+        }
+
+        address, caption, cite, code, dfn, em, strong, th, var {
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        caption, th {
+            text-align: left;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 100%;
+            font-weight: normal;
+        }
+
+        q:before, q:after {
+            content: '';
+        }
+
+        abbr, acronym {
+            border: 0;
+        }
+
+        body {
+            padding: 10em;
+            font: 12px/1.5 arial, sans-serif;
+        }
+
+        /* Tab */
+        .tabs {
+            width: 100%;
+            overflow: hidden;
+            /*margin-bottom: 20px;*/
+        }
+
+        .tabs ul {
+            float: left;
+            box-shadow: #ddd 3px 3px 3px;
+            -moz-box-shadow: #ddd 3px 3px 3px;
+            -webkit-box-shadow: #ddd 3px 3px 3px;
+        }
+
+        .tabs li {
+            float: left;
+            margin-left: -1px;
+            border: 1px solid #666;
+            border-bottom: 1px solid #dfdfdf;
+
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            /*background-image: -o-linear-gradient(top left,rgb(255,0,0),rgb(100,0,0) 100px,rgb(50,0,0) 200px,rgb(150,0,0));*/
+            background-image: -o-linear-gradient(top left, #ddd 1%, #f5f5f5 3%, #f5f5f5 100%);
+
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            background-image: -moz-linear-gradient(0, #ddd 1%, #f5f5f5 3%, #f5f5f5 100%);
+
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-top-right-radius: 4px;
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0.01, #ddd), color-stop(0.03, #f5f5f5), color-stop(1, #f5f5f5));
+        }
+
+        .tabs li:first-child {
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        .tabs li.on {
+            background: #fff;
+            border-bottom: none;
+        }
+
+        .tabs li a {
+            display: block;
+            height: 27px;
+            padding: 0 20px;
+            text-align: center;
+            line-height: 27px;
+            overflow: hidden;
+            color: #333;
+            outline: 0;
+        }
+
+        .tabs li.on a,
+        .tabs li a:link, .tabs li a:visited {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .tabs .others {
+            overflow: auto;
+            height: 28px;
+            border-bottom: 1px solid #dfdfdf;
+            text-align: right;
+        }
+
+        .tabs ~ .content {
+            border: 1px solid #dfdfdf;
+            border-top: none;
+        }
+        .hidden {
+            display: none;
+        }
+
+        div.ss_workflow select, div.ss_workflow select + input {display: none;}
+
+    </style>
+    <style type="text/css">
+        div.ss_workflow select, div.ss_workflow select + input {display: none;}
+    </style>
+</head>
+<body onunload="">
+
+<div class="tabs">
+    <ul>
+        <li class="on"><a href="#page1.html">正在收听</a></li>
+        <li class=""><a href="#page2.html">最近播放过的歌曲</a></li>
+        <li class=""><a href="#page3.html">好友的电台</a></li>
+        <li class=""><a href="#page4.html">常见问题</a></li>
+    </ul>
+    <div class="others">&nbsp;</div>
+</div>
+<div class="content">
+    page1
+</div>
+<div class="content hidden">
+    page2
+</div>
+
+<p>
+  兼容Safari 4+/Firefox 3+/Chrome/Opear
+</p>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+    
+    $(function() {
+
+        $('.tabs a').click(function(e) {
+            e.preventDefault();
+            $('.tabs .on').removeClass('on');
+            $(this).parent().addClass('on');
+        });
+    });
+</script>
+
+</body>
+</html>

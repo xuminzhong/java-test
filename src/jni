@@ -1,0 +1,8 @@
+http://www.cnblogs.com/mandroid/archive/2011/06/15/2081093.html
+
+javac ./com/magc/jni/HelloWorld.java
+javah -jni com.magc.jni.HelloWorld
+
+g++ -shared -I /opt/jdk1.6.0_20/include -I /opt/jdk1.6.0_20/include/linux jni_helloworldImpl.cpp -o libHello.so
+
+java -Djava.library.path=. com.magc.jni.HelloWorld
